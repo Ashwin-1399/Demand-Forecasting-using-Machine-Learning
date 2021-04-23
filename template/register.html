@@ -1,0 +1,277 @@
+
+{% extends "layout.html" %}
+  {% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    .z{margin-top:2800px;}
+  </style>
+
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- <h1 class="text-white text-center font-weight-bold bg-success">Register</h1> -->
+  <div class="container" style="margin-top:-500px; text-align:left;"><br>
+    <h1 class="navbar-brand" style="font-size:30px; width:530px; margin-left:290px;">Register</h1>
+    <div class="col-lg-6 m-auto d-block">
+      
+      <form action="/register" onsubmit="return validation()" class="bg-light" method="post">
+        
+        <div class="form-group">
+          <label for="user" class="font-weight-bold"> Username: </label>
+          <input type="text" name="user" class="form-control" id="user" autocomplete="off" placeholder="plz enter the username">
+          <span id="username" class="text-danger font-weight-bold"> </span>
+        </div>
+         <div class="form-group">
+          <label class="font-weight-bold"> Email: </label>
+          <input type="text" name="email" class="form-control" id="emails" autocomplete="off" placeholder="plz enter the emailID">
+          <span id="emailids" class="text-danger font-weight-bold"> </span>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold"> Password: </label>
+          <input type="password" name="pass" class="form-control" id="pass" autocomplete="off" placeholder="plz enter the password">
+          <span id="passwords" class="text-danger font-weight-bold"> </span>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold"> Confirm Password: </label>
+          <input type="password" name="conpass" class="form-control" id="conpass" autocomplete="off" placeholder="plz enter the confirmpassword">
+          <span id="confrmpass" class="text-danger font-weight-bold"> </span>
+        </div>
+        <input type="submit" name="submit" value="Register" class="btn btn-success" >
+        <br/>
+        <div class="container signin">
+          <p style="text-align: center;">Already have an account? <a href="/login">Sign in</a>.</p>
+        </div>
+
+      </form><br><br>
+
+
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+    
+
+    function validation(){
+
+      var user = document.getElementById('user').value;
+      var pass = document.getElementById('pass').value;
+      var confirmpass = document.getElementById('conpass').value;
+      var emails = document.getElementById('emails').value;
+
+
+
+      if(user == ""){
+        document.getElementById('username').innerHTML =" ** Please fill the username field";
+        return false;
+      }
+      if((user.length <= 2) || (user.length > 20)) {
+        document.getElementById('username').innerHTML =" ** Username lenght must be between 2 and 20";
+        return false; 
+      }
+      if(!isNaN(user)){
+        document.getElementById('username').innerHTML =" ** only characters are allowed";
+        return false;
+      }
+
+
+
+
+
+
+
+      if(pass == ""){
+        document.getElementById('passwords').innerHTML =" ** Please fill the password field";
+        return false;
+      }
+      if((pass.length <= 5) || (pass.length > 20)) {
+        document.getElementById('passwords').innerHTML =" ** Passwords lenght must be between  5 and 20";
+        return false; 
+      }
+
+
+      if(pass!=confirmpass){
+        document.getElementById('confrmpass').innerHTML =" ** Password does not match the confirm password";
+        return false;
+      }
+
+
+
+      if(confirmpass == ""){
+        document.getElementById('confrmpass').innerHTML =" ** Please fill the confirmpassword field";
+        return false;
+      }
+
+
+
+
+
+      if(emails == ""){
+        document.getElementById('emailids').innerHTML =" ** Please fill the email idx` field";
+        return false;
+      }
+      if(emails.indexOf('@') <= 0 ){
+        document.getElementById('emailids').innerHTML =" ** @ Invalid Position";
+        return false;
+      }
+
+      if((emails.charAt(emails.length-4)!='.') && (emails.charAt(emails.length-3)!='.')){
+        document.getElementById('emailids').innerHTML =" ** . Invalid Position";
+        return false;
+      }
+    }
+
+  </script>
+
+</body>
+</html>
+
+
+
+<section class="ftco-section bg-light">
+   <div class="container">
+      <div class="row justify-content-center pb-4">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+          	<!-- <span class="subheading">Start Learning Today</span>
+            <h2 class="mb-4">Pick Your Course</h2> -->
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-md-4 ftco-animate">
+          <div class="project-wrap">
+             <a href="#" class="img" style="background-image: url( {{url_for('static', filename='images/work-1.jpg')}}  );">
+                <!-- <span class="price">Software</span> -->
+            </a>
+            <div class="text p-4">
+                <!-- <h3><a href="#">Design for the web with adobe photoshop</a></h3> -->
+               <!--  <p class="advisor">Advisor <span>Tony Garret</span></p> -->
+                <ul class="d-flex justify-content-between">
+                   <!-- <li><span class="flaticon-shower"></span>2300</li>
+                   <li class="price">$199</li> -->
+               </ul>
+           </div>
+       </div>
+   </div>
+   <div class="col-md-4 ftco-animate">
+      <div class="project-wrap">
+         <a href="#" class="img" style="background-image: url( {{url_for('static', filename='images/demand.jpeg')}} );">
+            <!-- <span class="price">Software</span> -->
+        </a>
+        <div class="text p-4">
+            <!-- <h3><a href="#">Design for the web with adobe photoshop</a></h3>
+            <p class="advisor">Advisor <span>Tony Garret</span></p>
+            <ul class="d-flex justify-content-between">
+               <li><span class="flaticon-shower"></span>2300</li>
+               <li class="price">$199</li> -->
+           </ul>
+       </div>
+   </div>
+</div>
+<div class="col-md-4 ftco-animate">
+  <div class="project-wrap">
+     <a href="#" class="img" style="background-image: url( {{url_for('static', filename='images/work-3.jpg')}} );">
+        <!-- <span class="price">Software</span> -->
+    </a>
+    <div class="text p-4">
+        <!-- <h3><a href="#">Design for the web with adobe photoshop</a></h3>
+        <p class="advisor">Advisor <span>Tony Garret</span></p>
+        <ul class="d-flex justify-content-between">
+           <li><span class="flaticon-shower"></span>2300</li>
+           <li class="price">$199</li>
+       </ul> -->
+   </div>
+</div>
+</div>
+
+<div class="col-md-4 ftco-animate">
+  <div class="project-wrap">
+     <a href="#" class="img" style="background-image: url( {{url_for('static', filename='images/work-4.jpg')}} );">
+        <!-- <span class="price">Software</span> -->
+    </a>
+    <div class="text p-4">
+        <!-- <h3><a href="#">Design for the web with adobe photoshop</a></h3>
+        <p class="advisor">Advisor <span>Tony Garret</span></p>
+        <ul class="d-flex justify-content-between">
+           <li><span class="flaticon-shower"></span>2300</li>
+           <li class="price">$199</li>
+       </ul> -->
+   </div>
+</div>
+</div>
+<div class="col-md-4 ftco-animate">
+  <div class="project-wrap">
+     <a href="#" class="img" style="background-image: url( {{url_for('static', filename='images/demand1.jpeg')}} );">
+        <!-- <span class="price">Software</span> -->
+    </a>
+    <div class="text p-4">
+        <!-- <h3><a href="#">Design for the web with adobe photoshop</a></h3>
+        <p class="advisor">Advisor <span>Tony Garret</span></p>
+        <ul class="d-flex justify-content-between">
+           <li><span class="flaticon-shower"></span>2300</li>
+           <li class="price">$199</li>
+       </ul> -->
+   </div>
+</div>
+</div>
+<div class="col-md-4 ftco-animate">
+  <div class="project-wrap">
+     <a href="#" class="img" style="background-image: url( {{url_for('static', filename='images/work-6.jpg')}} );">
+        <!-- <span class="price">Software</span> -->
+    </a>
+    <div class="text p-4">
+        <!-- <h3><a href="#">Design for the web with adobe photoshop</a></h3>
+        <p class="advisor">Advisor <span>Tony Garret</span></p>
+        <ul class="d-flex justify-content-between">
+           <li><span class="flaticon-shower"></span>2300</li>
+           <li class="price">$199</li>
+       </ul> -->
+   </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!--  -->
+<section class="ftco-section ftco-about img">
+   <div class="container">
+      <div class="row d-flex">
+         <div class="col-md-12 about-intro">
+            <div class="row">
+               <div class="col-md-6 d-flex">
+                  <div class="d-flex about-wrap">
+                     <div class="img d-flex align-items-center justify-content-center" style="background-image:url( {{url_for('static', filename='images/about-1.jpg')}}  );">
+                     </div>
+                     <div class="img-2 d-flex align-items-center justify-content-center" style="background-image:url({{url_for('static', filename='images/about.jpg')}} );">
+                     </div>
+                 </div>
+             </div>
+             <div class="col-md-6 pl-md-5 py-5">
+              <div class="row justify-content-start pb-3">
+                  <div class="col-md-12 heading-section ftco-animate">
+                     <!-- <span class="subheading">Enhanced Your Skills</span>
+                     <h2 class="mb-4">Learn Anything You Want Today</h2> -->
+                     <p>Demand Forecasting is a process by which an individual or entity predicts the how much the consumer or customer would be willing to buy the product or use the service. Without Proper Demand forecasting it becomes impossible for any business to function. Improper Demand forecasting. would result in heavy loss. Different industry or company has different methods to predict the demands. In case of food industry, it is at most important that the demand needs to be on bulls’ eye since the food materials gets perished easily and has the fixed time frame to be used. So, the daily and weekly demand needs to be precise to avoid wastage which would otherwise increase the operating cost.</p>
+                     <p><a href="#" class="btn btn-primary">Get in touch with us</a></p>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+</section>
+
+{% endblock %}

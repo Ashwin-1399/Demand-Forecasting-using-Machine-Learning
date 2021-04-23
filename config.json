@@ -1,0 +1,15 @@
+{
+	"params":
+	{
+		"local_server":"True",
+		"local_uri":"mysql://root:@localhost/demandforecasting",
+		"prod_uri":"mysql://root:@localhost/demandforecasting",
+		"fb_url":"https://facebook.com/demandforecasting",
+		"tw_url":"https://twitter.com/demandforecasting",
+		"git_url":"https://github.com/demandforecasting",
+		"blog_name":"DemandForecasting",
+		"gmail_user":"projectguru98@gmail.com",
+		"gmail_password":"password input"
+
+	}
+} 
